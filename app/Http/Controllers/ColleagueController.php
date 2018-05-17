@@ -33,6 +33,11 @@ class ColleagueController extends Controller
     }
 
 
+    /**
+     * @param $id
+     * @return array
+     */
+
     public function show($id)
     {
         $colleague = Colleague::findOrFail($id);
@@ -42,7 +47,11 @@ class ColleagueController extends Controller
 
     }
 
-
+    /**
+     * @param $id
+     * @param Request $request
+     * @return array
+     */
     public function addProject($id, Request $request)
     {
         $colleague = Colleague::findOrFail($id);
