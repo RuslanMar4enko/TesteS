@@ -15,7 +15,7 @@ class Colleague extends Model
         'sociability',
         'engineering_skill',
         'time_management',
-        'languages',
+        'lang',
     ];
     public function projects()
     {

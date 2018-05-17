@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('colleague/create', 'ColleagueController@store');
+Route::get('colleague/{id}', 'ColleagueController@show');

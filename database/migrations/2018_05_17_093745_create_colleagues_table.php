@@ -22,7 +22,7 @@ class CreateColleaguesTable extends Migration
             $table->integer('sociability')->default(0);
             $table->integer('engineering_skill')->default(0);
             $table->integer('time_management')->default(0);
-            $table->integer('languages')->default(0);
+            $table->integer('lang')->default(0);
             $table->timestamps();
         });
     }
