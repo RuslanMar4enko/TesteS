@@ -44,7 +44,6 @@ class ColleagueController extends Controller
         if (!$colleague) abort(404);
 
         return ['data' => $colleague];
-
     }
 
     /**

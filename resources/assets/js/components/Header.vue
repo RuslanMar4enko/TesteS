@@ -12,7 +12,7 @@
         <div v-bind:class="{ active: isActive, sidebar: sidebar}">
             <ul>
                 <li>
-                    <router-link to="/events"><i class="fa fa-desktop"></i><span>Events</span></router-link>
+                    <router-link to="/colleague/create"><i class="fa fa-desktop"></i><span>Events</span></router-link>
                 </li>
                 <li><a href="#"><i class="fa fa-server"></i><span>Server</span></a></li>
                 <li><a href="#"><i class="fa fa-calendar"></i><span>Calendar</span></a></li>
