@@ -1,22 +1,38 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
+
 
 window.Vue = require('vue');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+window.VueRouter = require('vue-router').default;
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+window.VueAxios = require('vue-axios').default;
+
+window.Axios = require('axios').default;
+
+
+
+Vue.component('top-header', require('./components/Header.vue'));
+
+// register modules
+Vue.use(VueRouter, VueAxios, axios);
+
+const App = Vue.component('App', require('./components/pages/App.vue'));
+// const eventIndex = Vue.component('eventIndex', require('./components/admin/pages/events/index.vue'));
+// const eventStore = Vue.component('eventStore', require('./components/admin/pages/events/store.vue'));
+
+const routes =  [
+    {
+        name: 'App',
+        path: '/',
+        component: App
+    },
+    // { name: 'eventIndex', path: '/events', component: eventIndex},
+    // { name: 'eventStore', path: '/events/create', component: eventStore}
+];
+
+const router = new VueRouter({ routes });
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router,
 });
