@@ -28,14 +28,25 @@ class ColleagueController extends Controller
         $colleague->time_management = $request->time_management;
         $colleague->lang = $request->lang;
         $colleague->save();
+
         return ['data' => $colleague];
     }
 
 
-    public function show($id, Request $request){
-        $colleague = Colleague::find($id);
+    public function show($id)
+    {
+        $colleague = Colleague::findOrFail($id);
         if (!$colleague) abort(404);
 
+        return ['data' => $colleague];
+
+    }
+
+
+    public function addProject($id, Request $request)
+    {
+        $colleague = Colleague::findOrFail($id);
+        $colleague->projects()->sync($request->projects, 'id');
         return ['data' => $colleague];
 
     }
