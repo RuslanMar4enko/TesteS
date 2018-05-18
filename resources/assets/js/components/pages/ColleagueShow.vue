@@ -2,10 +2,27 @@
     <div>
         <div id="main" class="main">
             <div class="jumbotron">
+                <div class="addProject">
+                    <h1>Добавить проект на сотрудника</h1>
+                    <div>
+                        <label class="typo__label">Single select / dropdown</label>
+                        <multiselect v-model="value" deselect-label="Can't remove this value" track-by="name"
+                                     label="name" placeholder="Select one" :options=this.options2 :searchable="false"
+                                     :allow-empty="false">
+                            <template slot="singleLabel" slot-scope="{ option }"><strong>{{ option.name }}</strong>
+                            </template>
+                        </multiselect>
+                        <!--<pre class="language-json"><code>{{ value  }}</code></pre>-->
+                    </div>
+
+                    <div class="col-md-12">
+                        <button class="btn btn-success btn-block" @click="store">Upload Image</button>
+                    </div>
+                </div>
                 <div>
                     <img v-bind:src="'/'+ colleague.image ">
                 </div>
-                <h1 id="hello,-world!">{{ colleague.name }} {{ colleague.surname }} {{ colleague.patronymic }}</h1>
+                <h2 id="hello,-world!">{{ colleague.name }} {{ colleague.surname }} {{ colleague.patronymic }}</h2>
                 <div style="font-size: 16px; margin-top: 10px;"><strong>Sociability</strong>
                     <strong>{{colleague.sociability}}</strong></div>
                 <div class="progress">
@@ -39,27 +56,63 @@
     </div>
 </template>
 <script>
+    import Multiselect from 'vue-multiselect'
+
     export default {
         mounted() {
             this.getColleague();
+            this.getProject();
+        },
+        components: {
+            Multiselect
         },
         data() {
             return {
-                colleague: {}
+                colleague: {},
+                projects: {},
+                id: null,
+                value: '',
+                options: [],
+                options2: []
             }
         },
         methods: {
             getColleague() {
                 let app = this;
-                let id = app.$route.params.id;
+                app.id = app.$route.params.id;
+                let id = app.id;
                 axios.get('/api/colleague/' + id)
                     .then(function (resp) {
                         app.colleague = resp.data.data;
                     })
                     .catch(function () {
-                        alert("Could not load your company")
+                        alert("Could not load your colleague")
                     });
             },
-        }
+
+            getProject() {
+                let app = this;
+                let array = [];
+                axios.get('/api/projects')
+                    .then(function (resp) {
+                        app.options2 = resp.data;
+                        console.log(app.options2);
+                        resp.data.forEach(function (value, key) {
+                            array[value.id] = value.name;
+                        });
+                        app.options = array;
+                        console.log(app.id);
+                    })
+                    .catch(function () {
+                        alert("Could not load your colleague")
+                    })
+            },
+
+            store() {
+
+                console.log(this.value);
+            }
+        },
+
     }
 </script>

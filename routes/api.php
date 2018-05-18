@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('colleague/create', 'ColleagueController@store');
 Route::get('colleague/{id}', 'ColleagueController@show');
+Route::get('projects', 'ProjectController@index');
