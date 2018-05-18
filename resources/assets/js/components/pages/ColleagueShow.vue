@@ -6,8 +6,9 @@
                     <h1>Добавить проект на сотрудника</h1>
                     <div>
                         <label class="typo__label">Single select / dropdown</label>
-                        <multiselect v-model="value" deselect-label="Can't remove this value" track-by="name"
-                                     label="name" placeholder="Select one" :options=this.options2 :searchable="false"
+                        <multiselect :multiple= this.multiple v-model="value" deselect-label="Can't remove this value"
+                                     track-by="name"
+                                     label="name" placeholder="Select one" :options=this.options :searchable="false"
                                      :allow-empty="false">
                             <template slot="singleLabel" slot-scope="{ option }"><strong>{{ option.name }}</strong>
                             </template>
@@ -73,7 +74,7 @@
                 id: null,
                 value: '',
                 options: [],
-                options2: []
+                multiple: false,
             }
         },
         methods: {
@@ -83,6 +84,9 @@
                 let id = app.id;
                 axios.get('/api/colleague/' + id)
                     .then(function (resp) {
+                        if(resp.data.data.time_management == 10){
+                            app.multiple = true;
+                        }
                         app.colleague = resp.data.data;
                     })
                     .catch(function () {
@@ -92,16 +96,9 @@
 
             getProject() {
                 let app = this;
-                let array = [];
                 axios.get('/api/projects')
                     .then(function (resp) {
-                        app.options2 = resp.data;
-                        console.log(app.options2);
-                        resp.data.forEach(function (value, key) {
-                            array[value.id] = value.name;
-                        });
-                        app.options = array;
-                        console.log(app.id);
+                        app.options = resp.data;
                     })
                     .catch(function () {
                         alert("Could not load your colleague")

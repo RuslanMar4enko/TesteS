@@ -50941,6 +50941,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -50960,7 +50961,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             id: null,
             value: '',
             options: [],
-            options2: []
+            multiple: false
         };
     },
 
@@ -50970,6 +50971,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             app.id = app.$route.params.id;
             var id = app.id;
             axios.get('/api/colleague/' + id).then(function (resp) {
+                if (resp.data.data.time_management == 10) {
+                    app.multiple = true;
+                }
                 app.colleague = resp.data.data;
             }).catch(function () {
                 alert("Could not load your colleague");
@@ -50977,15 +50981,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getProject: function getProject() {
             var app = this;
-            var array = [];
             axios.get('/api/projects').then(function (resp) {
-                app.options2 = resp.data;
-                console.log(app.options2);
-                resp.data.forEach(function (value, key) {
-                    array[value.id] = value.name;
-                });
-                app.options = array;
-                console.log(app.id);
+                app.options = resp.data;
             }).catch(function () {
                 alert("Could not load your colleague");
             });
@@ -51027,11 +51024,12 @@ var render = function() {
               _vm._v(" "),
               _c("multiselect", {
                 attrs: {
+                  multiple: this.multiple,
                   "deselect-label": "Can't remove this value",
                   "track-by": "name",
                   label: "name",
                   placeholder: "Select one",
-                  options: this.options2,
+                  options: this.options,
                   searchable: false,
                   "allow-empty": false
                 },
