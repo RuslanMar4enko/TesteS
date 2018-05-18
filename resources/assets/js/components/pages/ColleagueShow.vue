@@ -2,42 +2,46 @@
     <div>
         <div id="main" class="main">
             <div class="jumbotron">
-                <h1 id="hello,-world!">Events<a class="anchorjs-link" href="#hello,-world!"><span
-                        class="anchorjs-icon"></span></a></h1>
-                <p>Here you can create your own Events.
-                    <router-link class="btn btn-primary btnFromAdmin" to="/events/create"><span>Events</span>
-                    </router-link>
-                </p>
+                <div>
+                    <img v-bind:src="'/'+ colleague.image ">
+                </div>
+                <h1 id="hello,-world!">{{ colleague.name }} {{ colleague.surname }} {{ colleague.patronymic }}</h1>
+                <div style="font-size: 16px; margin-top: 10px;"><strong>Sociability</strong>
+                    <strong>{{colleague.sociability}}</strong></div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar"
+                         v-bind:style="{width: colleague.sociability + '0%'}" aria-valuenow="10" aria-valuemin="0"
+                         aria-valuemax="100"></div>
+                </div>
+                <div style="font-size: 16px; margin-top: 10px;"><strong>Engineering Skill</strong>
+                    <strong>{{colleague.engineering_skill}}</strong></div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar"
+                         v-bind:style="{width: colleague.engineering_skill + '0%'}" aria-valuenow="10" aria-valuemin="0"
+                         aria-valuemax="100"></div>
+                </div>
+                <div style="font-size: 16px; margin-top: 10px;"><strong>Time Management</strong>
+                    <strong>{{colleague.time_management}}</strong></div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar"
+                         v-bind:style="{width: colleague.time_management + '0%'}" aria-valuenow="10" aria-valuemin="0"
+                         aria-valuemax="100"></div>
+                </div>
+                <div style="font-size: 16px; margin-top: 10px;"><strong>Lang</strong>
+                    <strong>{{colleague.lang}}</strong></div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar"
+                         v-bind:style="{width: colleague.lang + '0%'}" aria-valuenow="10" aria-valuemin="0"
+                         aria-valuemax="100"></div>
+                </div>
             </div>
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>image</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">{{ colleague.id }}</th>
-                    <td>{{ colleague.name }}</td>
-                    <!--<td>{{ event.description }}</td>-->
-                    <!--<td class="image-admin"><img v-bind:src="'/'+ event.image"></td>-->
-                    <!--<td>{{ event.date_event }}</td>-->
-                </tr>
-                </tbody>
-            </table>
-
         </div>
     </div>
 </template>
 <script>
     export default {
         mounted() {
-         this.getColleague();
+            this.getColleague();
         },
         data() {
             return {
@@ -55,7 +59,7 @@
                     .catch(function () {
                         alert("Could not load your company")
                     });
-            }
+            },
         }
     }
 </script>
