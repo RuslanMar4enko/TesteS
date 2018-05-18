@@ -51061,7 +51061,7 @@ var render = function() {
                 staticClass: "btn btn-success btn-block",
                 on: { click: _vm.store }
               },
-              [_vm._v("Upload Image")]
+              [_vm._v("Добавить проект")]
             )
           ])
         ]),

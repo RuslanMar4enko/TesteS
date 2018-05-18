@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <button class="btn btn-success btn-block" @click="store">Upload Image</button>
+                        <button class="btn btn-success btn-block" @click="store">Добавить проект</button>
                     </div>
                 </div>
                 <div>
