@@ -54,7 +54,7 @@ class ColleagueController extends Controller
     public function addProject($id, Request $request)
     {
         $colleague = Colleague::findOrFail($id);
-        $colleague->projects()->sync($request->projects, 'id');
+        $colleague->projects()->sync($request->all(), 'id');
         return ['data' => $colleague];
 
     }

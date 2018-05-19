@@ -6,14 +6,13 @@
                     <h1>Добавить проект на сотрудника</h1>
                     <div>
                         <label class="typo__label">Single select / dropdown</label>
-                        <multiselect :multiple= this.multiple v-model="value" deselect-label="Can't remove this value"
+                        <multiselect :multiple=this.multiple v-model="value" deselect-label="Can't remove this value"
                                      track-by="name"
                                      label="name" placeholder="Select one" :options=this.options :searchable="false"
                                      :allow-empty="false">
                             <template slot="singleLabel" slot-scope="{ option }"><strong>{{ option.name }}</strong>
                             </template>
                         </multiselect>
-                        <!--<pre class="language-json"><code>{{ value  }}</code></pre>-->
                     </div>
 
                     <div class="col-md-12">
@@ -84,7 +83,7 @@
                 let id = app.id;
                 axios.get('/api/colleague/' + id)
                     .then(function (resp) {
-                        if(resp.data.data.time_management == 10){
+                        if (resp.data.data.time_management == 10) {
                             app.multiple = true;
                         }
                         app.colleague = resp.data.data;
@@ -106,8 +105,31 @@
             },
 
             store() {
+                try {
+                    let project = [];
+                    let app = this;
+                    if (this.value.length) {
+                        this.value.forEach(function (data, key) {
+                            project.push(data.id);
+                        })
+                    } else {
+                        project.push(this.value.id);
+                    }
 
-                console.log(this.value);
+                    axios.put('/api/colleague/update/'+this.id, project)
+                        .then(function (resp) {
+
+                        })
+                        .catch(function () {
+                            alert("Could not update your projects")
+                        })
+
+                } catch (err) {
+
+                    console.log(err);
+
+                }
+
             }
         },
 

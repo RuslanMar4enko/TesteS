@@ -50941,7 +50941,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -50988,8 +50987,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         store: function store() {
+            try {
+                var project = [];
+                var app = this;
+                if (this.value.length) {
+                    this.value.forEach(function (data, key) {
+                        project.push(data.id);
+                    });
+                } else {
+                    project.push(this.value.id);
+                }
 
-            console.log(this.value);
+                axios.put('/api/colleague/update/' + this.id, project).then(function (resp) {}).catch(function () {
+                    alert("Could not update your projects");
+                });
+            } catch (err) {
+
+                console.log(err);
+            }
         }
     }
 
