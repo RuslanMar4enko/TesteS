@@ -19,19 +19,27 @@ class ColleagueController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'patronymic' => 'required|max:255',
+        ]);
+
         $image = $request->file('image');
 
         if ($image) $filename = $this->imageFit($image);
+        else $filename = 'uploads/Screenshot from 2018-05-14 16-52-02.png';
 
         $colleague = new Colleague();
         $colleague->name = $request->name;
         $colleague->surname = $request->surname;
         $colleague->patronymic = $request->patronymic;
         $colleague->image = $filename;
-        $colleague->sociability = $request->sociability;
-        $colleague->engineering_skill = $request->engineering_skill;
-        $colleague->time_management = $request->time_management;
-        $colleague->lang = $request->lang;
+        $colleague->sociability = (int) $request->sociability;
+        $colleague->engineering_skill = (int) $request->engineering_skill;
+        $colleague->time_management = (int) $request->time_management;
+        $colleague->lang = (int) $request->lang;
         $colleague->save();
 
         return ['data' => $colleague];

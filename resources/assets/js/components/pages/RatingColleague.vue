@@ -8,9 +8,9 @@
                         Инженерное мастерство {{ratings.engineering_skill}}</h2></div>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped" role="progressbar"
-                    v-bind:style="{width: Math.round(ratings.engineering_skill) + '0%'}" aria-valuenow="10"
-                    aria-valuemin="0"
-                    aria-valuemax="100"></div>
+                         v-bind:style="{width: Math.round(ratings.engineering_skill) + '0%'}" aria-valuenow="10"
+                         aria-valuemin="0"
+                         aria-valuemax="100"></div>
                 </div>
 
                 <div>

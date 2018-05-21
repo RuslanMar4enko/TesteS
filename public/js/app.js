@@ -13982,7 +13982,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(60);
+module.exports = __webpack_require__(63);
 
 
 /***/ }),
@@ -14009,7 +14009,7 @@ var App = Vue.component('App', __webpack_require__(48));
 var colleagueStore = Vue.component('ColleagueStore', __webpack_require__(50));
 var colleagueShow = Vue.component('colleagueShow', __webpack_require__(53));
 var ColleagueIndex = Vue.component('ColleagueIndex', __webpack_require__(57));
-var RatingColleague = Vue.component('RatingColleague', __webpack_require__(72));
+var RatingColleague = Vue.component('RatingColleague', __webpack_require__(60));
 
 var routes = [{
     name: 'App',
@@ -51813,31 +51813,14 @@ if (false) {
 
 /***/ }),
 /* 60 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(74)
+var __vue_script__ = __webpack_require__(61)
 /* template */
-var __vue_template__ = __webpack_require__(73)
+var __vue_template__ = __webpack_require__(62)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51876,7 +51859,85 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 73 */
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            ratings: []
+        };
+    },
+    mounted: function mounted() {
+        this.getRating();
+    },
+
+    methods: {
+        getRating: function getRating() {
+            var app = this;
+            axios.get('api/avg').then(function (resp) {
+                app.ratings = resp.data;
+            }).catch(function () {
+                alert('Could not load your colleague');
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51989,82 +52050,10 @@ if (false) {
 }
 
 /***/ }),
-/* 74 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/* 63 */
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            ratings: []
-        };
-    },
-    mounted: function mounted() {
-        this.getRating();
-    },
-
-    methods: {
-        getRating: function getRating() {
-            var app = this;
-            axios.get('api/avg').then(function (resp) {
-                app.ratings = resp.data;
-            }).catch(function () {
-                alert('Could not load your colleague');
-            });
-        }
-    }
-});
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
