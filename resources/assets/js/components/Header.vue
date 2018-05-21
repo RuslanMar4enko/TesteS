@@ -11,6 +11,7 @@
         </div>
         <div v-bind:class="{ active: isActive, sidebar: sidebar}">
             <ul>
+
                 <li>
                     <router-link to="/colleague/create"><i class="fa fa-desktop"></i><span>Colleague Create</span></router-link>
                 </li>

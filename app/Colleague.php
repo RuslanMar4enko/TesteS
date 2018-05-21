@@ -17,6 +17,9 @@ class Colleague extends Model
         'time_management',
         'lang',
     ];
+
+
+
     public function projects()
     {
         return $this->belongsToMany(Project::class ,'colleague_projects', 'colleague_id', 'project_id');
