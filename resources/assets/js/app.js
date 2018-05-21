@@ -20,6 +20,7 @@ const App = Vue.component('App', require('./components/pages/App.vue'));
  const colleagueStore = Vue.component('ColleagueStore', require('./components/pages/ColleagueStore.vue'));
  const colleagueShow = Vue.component('colleagueShow', require('./components/pages/ColleagueShow.vue'));
  const ColleagueIndex = Vue.component('ColleagueIndex', require('./components/pages/ColleagueIndex.vue'));
+ const RatingColleague = Vue.component('RatingColleague', require('./components/pages/RatingColleague.vue'));
 
 const routes =  [
     {
@@ -29,7 +30,8 @@ const routes =  [
     },
      { name: 'colleagueStore', path: '/colleague/create', component: colleagueStore},
      { name: 'colleagueShow', path: '/colleague/:id', component: colleagueShow},
-     { name: 'ColleagueIndex', path: '/get/colleague', component: ColleagueIndex}
+     { name: 'ColleagueIndex', path: '/get/colleague', component: ColleagueIndex},
+     { name: 'RatingColleague', path: '/rating/colleague', component: RatingColleague}
 ];
 
 const router = new VueRouter({ routes });

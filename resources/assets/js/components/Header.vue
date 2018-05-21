@@ -18,6 +18,9 @@
                 <li>
                     <router-link to="/get/colleague"><i class="fa fa-desktop"></i><span>Colleague</span></router-link>
                 </li>
+                <li>
+                    <router-link to="/rating/colleague"><i class="fa fa-desktop"></i><span>Rating</span></router-link>
+                </li>
             </ul>
         </div>
     </div>

@@ -8,7 +8,7 @@ use App\Colleague;
 class ColleagueController extends Controller
 {
 
-    public function index(){
+    public function index(Request $request){
         $colleague = Colleague::with('projects')->latest()->get();
        return['data'=>$colleague];
     }

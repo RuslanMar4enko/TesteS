@@ -377,33 +377,6 @@ module.exports = {
 /* 1 */
 /***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
 /* globals __VUE_SSR_CONTEXT__ */
 
 // IMPORTANT: Do NOT use ES2015 features in this file.
@@ -507,6 +480,33 @@ module.exports = function normalizeComponent (
     options: options
   }
 }
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
 
 
 /***/ }),
@@ -3140,7 +3140,7 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)))
 
 /***/ }),
 /* 5 */
@@ -13982,7 +13982,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(57);
+module.exports = __webpack_require__(60);
 
 
 /***/ }),
@@ -14005,22 +14005,17 @@ Vue.component('search', __webpack_require__(45));
 // register modules
 Vue.use(VueRouter, VueAxios, axios);
 
-<<<<<<< HEAD
-var App = Vue.component('App', __webpack_require__(45));
-var colleagueStore = Vue.component('ColleagueStore', __webpack_require__(47));
-var colleagueShow = Vue.component('colleagueShow', __webpack_require__(50));
-var ColleagueIndex = Vue.component('ColleagueIndex', __webpack_require__(66));
-=======
 var App = Vue.component('App', __webpack_require__(48));
 var colleagueStore = Vue.component('ColleagueStore', __webpack_require__(50));
 var colleagueShow = Vue.component('colleagueShow', __webpack_require__(53));
->>>>>>> b67665312a428d0d692099e0077ceb5baf60b606
+var ColleagueIndex = Vue.component('ColleagueIndex', __webpack_require__(57));
+var RatingColleague = Vue.component('RatingColleague', __webpack_require__(72));
 
 var routes = [{
     name: 'App',
     path: '/',
     component: App
-}, { name: 'colleagueStore', path: '/colleague/create', component: colleagueStore }, { name: 'colleagueShow', path: '/colleague/:id', component: colleagueShow }, { name: 'ColleagueIndex', path: '/get/colleague', component: ColleagueIndex }];
+}, { name: 'colleagueStore', path: '/colleague/create', component: colleagueStore }, { name: 'colleagueShow', path: '/colleague/:id', component: colleagueShow }, { name: 'ColleagueIndex', path: '/get/colleague', component: ColleagueIndex }, { name: 'RatingColleague', path: '/rating/colleague', component: RatingColleague }];
 
 var router = new VueRouter({ routes: routes });
 
@@ -31201,7 +31196,7 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(17)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(17)(module)))
 
 /***/ }),
 /* 17 */
@@ -47010,7 +47005,7 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(38).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(38).setImmediate))
 
 /***/ }),
 /* 38 */
@@ -47080,7 +47075,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 39 */
@@ -47273,7 +47268,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(8)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(8)))
 
 /***/ }),
 /* 40 */
@@ -49919,7 +49914,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof="fun
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(43)
 /* template */
@@ -49991,11 +49986,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-<<<<<<< HEAD
-=======
 //
 //
->>>>>>> b67665312a428d0d692099e0077ceb5baf60b606
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -50077,6 +50071,17 @@ var render = function() {
             ])
           ],
           1
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          [
+            _c("router-link", { attrs: { to: "/rating/colleague" } }, [
+              _c("i", { staticClass: "fa fa-desktop" }),
+              _c("span", [_vm._v("Rating")])
+            ])
+          ],
+          1
         )
       ])
     ])
@@ -50097,7 +50102,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(46)
 /* template */
@@ -50154,6 +50159,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -50192,6 +50244,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("label", { staticClass: "search" }, [_vm._v(" Поле поиска по ФИО ")]),
+    _vm._v(" "),
     _c("input", {
       directives: [
         {
@@ -50201,7 +50255,7 @@ var render = function() {
           expression: "keywords"
         }
       ],
-      attrs: { type: "text" },
+      attrs: { type: "text", placeholder: "Search" },
       domProps: { value: _vm.keywords },
       on: {
         input: function($event) {
@@ -50213,17 +50267,146 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _vm.results.length > 0
-      ? _c(
-          "ul",
-          _vm._l(_vm.results, function(result) {
-            return _c("li", {
-              key: result.id,
-              domProps: { textContent: _vm._s(result.name) }
-            })
-          })
-        )
-      : _vm._e()
+    _c("div"),
+    _vm._v(" "),
+    _c("div", { staticClass: " container jumbotron" }, [
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.results, function(colleague) {
+          return _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "margin" }, [
+              _c("div", [_c("img", { attrs: { src: "/" + colleague.image } })]),
+              _vm._v(" "),
+              _c("h2", { attrs: { id: "hello,-world!" } }, [
+                _vm._v(
+                  _vm._s(colleague.name) +
+                    " " +
+                    _vm._s(colleague.surname) +
+                    " " +
+                    _vm._s(colleague.patronymic)
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticStyle: { "font-size": "16px", "margin-top": "10px" } },
+                [
+                  _c("strong", [_vm._v("Sociability")]),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v(_vm._s(colleague.sociability))])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "progress" }, [
+                _c("div", {
+                  staticClass: "progress-bar progress-bar-striped",
+                  style: { width: colleague.sociability + "0%" },
+                  attrs: {
+                    role: "progressbar",
+                    "aria-valuenow": "10",
+                    "aria-valuemin": "0",
+                    "aria-valuemax": "100"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticStyle: { "font-size": "16px", "margin-top": "10px" } },
+                [
+                  _c("strong", [_vm._v("Engineering Skill")]),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v(_vm._s(colleague.engineering_skill))])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "progress" }, [
+                _c("div", {
+                  staticClass: "progress-bar progress-bar-striped",
+                  style: { width: colleague.engineering_skill + "0%" },
+                  attrs: {
+                    role: "progressbar",
+                    "aria-valuenow": "10",
+                    "aria-valuemin": "0",
+                    "aria-valuemax": "100"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticStyle: { "font-size": "16px", "margin-top": "10px" } },
+                [
+                  _c("strong", [_vm._v("Time Management")]),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v(_vm._s(colleague.time_management))])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "progress" }, [
+                _c("div", {
+                  staticClass: "progress-bar progress-bar-striped",
+                  style: { width: colleague.time_management + "0%" },
+                  attrs: {
+                    role: "progressbar",
+                    "aria-valuenow": "10",
+                    "aria-valuemin": "0",
+                    "aria-valuemax": "100"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticStyle: { "font-size": "16px", "margin-top": "10px" } },
+                [
+                  _c("strong", [_vm._v("Lang")]),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v(_vm._s(colleague.lang))])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "progress" }, [
+                _c("div", {
+                  staticClass: "progress-bar progress-bar-striped",
+                  style: { width: colleague.lang + "0%" },
+                  attrs: {
+                    role: "progressbar",
+                    "aria-valuenow": "10",
+                    "aria-valuemin": "0",
+                    "aria-valuemax": "100"
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "colleagueShow",
+                        params: { id: colleague.id }
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { staticClass: "btn btn-primary" }, [
+                      _vm._v("add Projects")
+                    ])
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        })
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -50241,7 +50424,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
@@ -50309,21 +50492,7 @@ var render = function() {
             _c("search")
           ],
           1
-        ),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Keffiyeh banjo keytar selfies. Actually plaid PBR&B, High Life dreamcatcher kale chips master cleanse craft beer messenger bag locavore Brooklyn Blue Bottle. Freegan literally brunch kale chips small batch. Etsy iPhone gentrify photo booth. Lomo\n                keffiyeh vinyl, distillery pop-up messenger bag kale chips post-ironic DIY 90's keytar. Intelligentsia next level Pitchfork forage vinyl Marfa, normcore heirloom. Drinking vinegar asymmetrical roof party, yr artisan Carles mixtape jean shorts."
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Slow-carb fanny pack yr Brooklyn gentrify. Fanny pack keffiyeh taxidermy, ugh viral polaroid craft beer. +1 distillery Truffaut typewriter tousled crucifix, lo-fi butcher normcore skateboard. Drinking vinegar ugh whatever sriracha. Synth tofu viral\n                butcher flexitarian. 3 wolf moon Schlitz plaid small batch kale chips blog. Fingerstache selfies freegan, Helvetica Neutra Brooklyn semiotics cred narwhal beard tousled leggings."
-          )
-        ]),
-        _vm._v(" "),
-        _vm._m(1)
+        )
       ])
     ])
   ])
@@ -50341,28 +50510,6 @@ var staticRenderFns = [
         [_c("span", { staticClass: "anchorjs-icon" })]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("p", [
-          _vm._v(
-            "Slow-carb fanny pack yr Brooklyn gentrify. Fanny pack keffiyeh taxidermy, ugh viral polaroid craft beer. +1 distillery Truffaut typewriter tousled crucifix, lo-fi butcher normcore skateboard. Drinking vinegar ugh whatever sriracha. Synth tofu\n                        viral butcher flexitarian. 3 wolf moon Schlitz plaid small batch kale chips blog. Fingerstache selfies freegan, Helvetica Neutra Brooklyn semiotics cred narwhal beard tousled leggings."
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("p", [
-          _vm._v(
-            "Slow-carb fanny pack yr Brooklyn gentrify. Fanny pack keffiyeh taxidermy, ugh viral polaroid craft beer. +1 distillery Truffaut typewriter tousled crucifix, lo-fi butcher normcore skateboard. Drinking vinegar ugh whatever sriracha. Synth tofu\n                        viral butcher flexitarian. 3 wolf moon Schlitz plaid small batch kale chips blog. Fingerstache selfies freegan, Helvetica Neutra Brooklyn semiotics cred narwhal beard tousled leggings."
-          )
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -50379,7 +50526,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(51)
 /* template */
@@ -50958,7 +51105,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(54)
 /* template */
@@ -51324,31 +51471,14 @@ if (false) {
 
 /***/ }),
 /* 57 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(67)
+var __vue_script__ = __webpack_require__(58)
 /* template */
-var __vue_template__ = __webpack_require__(68)
+var __vue_template__ = __webpack_require__(59)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -51387,11 +51517,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 67 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -51471,7 +51602,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var app = this;
             axios.get('/api/colleague').then(function (resp) {
                 app.colleagues = resp.data.data;
-                console.log(app.colleagues[0].projects);
             }).catch(function () {
                 alert("Could not load your colleague");
             });
@@ -51480,7 +51610,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 68 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -51490,6 +51620,12 @@ var render = function() {
   return _c("div", [
     _c("div", { staticClass: "main", attrs: { id: "main" } }, [
       _c("div", { staticClass: " container jumbotron" }, [
+        _c("h1", [
+          _vm._v(
+            "Список всех сотрудников(фото + ФИО), характеристики и количество проектов на сотруднике(только число)."
+          )
+        ]),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "row" },
@@ -51674,6 +51810,261 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-39996fc5", module.exports)
   }
 }
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(74)
+/* template */
+var __vue_template__ = __webpack_require__(73)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/pages/RatingColleague.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-54561920", Component.options)
+  } else {
+    hotAPI.reload("data-v-54561920", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "main", attrs: { id: "main" } }, [
+      _c("div", { staticClass: " container jumbotron" }, [
+        _c("h1", [_vm._v(" Среднее значение характеристик всех сотрудников ")]),
+        _vm._v(" "),
+        _c("div", [
+          _c("h2", [
+            _vm._v(
+              "\n                    Инженерное мастерство " +
+                _vm._s(_vm.ratings.engineering_skill)
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "progress" }, [
+          _c("div", {
+            staticClass: "progress-bar progress-bar-striped",
+            style: { width: Math.round(_vm.ratings.engineering_skill) + "0%" },
+            attrs: {
+              role: "progressbar",
+              "aria-valuenow": "10",
+              "aria-valuemin": "0",
+              "aria-valuemax": "100"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("h2", [
+            _vm._v(
+              "\n                    Знание языков " + _vm._s(_vm.ratings.lang)
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "progress" }, [
+          _c("div", {
+            staticClass: "progress-bar progress-bar-striped",
+            style: { width: Math.round(_vm.ratings.lang) + "0%" },
+            attrs: {
+              role: "progressbar",
+              "aria-valuenow": "10",
+              "aria-valuemin": "0",
+              "aria-valuemax": "100"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("h2", [
+            _vm._v(
+              "\n                    Тайм менеджмент " +
+                _vm._s(_vm.ratings.time_management)
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "progress" }, [
+          _c("div", {
+            staticClass: "progress-bar progress-bar-striped",
+            style: { width: Math.round(_vm.ratings.time_management) + "0%" },
+            attrs: {
+              role: "progressbar",
+              "aria-valuenow": "10",
+              "aria-valuemin": "0",
+              "aria-valuemax": "100"
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("h2", [
+            _vm._v(
+              "\n                    Коммуникабельность " +
+                _vm._s(_vm.ratings.sociability)
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "progress" }, [
+          _c("div", {
+            staticClass: "progress-bar progress-bar-striped",
+            style: { width: Math.round(_vm.ratings.sociability) + "0%" },
+            attrs: {
+              role: "progressbar",
+              "aria-valuenow": "10",
+              "aria-valuemin": "0",
+              "aria-valuemax": "100"
+            }
+          })
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-54561920", module.exports)
+  }
+}
+
+/***/ }),
+/* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            ratings: []
+        };
+    },
+    mounted: function mounted() {
+        this.getRating();
+    },
+
+    methods: {
+        getRating: function getRating() {
+            var app = this;
+            axios.get('api/avg').then(function (resp) {
+                app.ratings = resp.data;
+            }).catch(function () {
+                alert('Could not load your colleague');
+            });
+        }
+    }
+});
 
 /***/ })
 /******/ ]);

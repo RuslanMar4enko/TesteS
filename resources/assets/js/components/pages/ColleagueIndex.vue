@@ -2,6 +2,7 @@
     <div>
         <div id="main" class="main">
             <div class=" container jumbotron">
+                <h1>Список всех сотрудников(фото + ФИО), характеристики и количество проектов на сотруднике(только число).</h1>
                 <div class="row">
                     <div v-for="colleague, index in colleagues" class="col-md-6">
                         <div class="margin">
@@ -68,7 +69,7 @@
         },
         data() {
             return {
-                colleagues: {}
+                colleagues: {},
             }
         },
         methods: {
@@ -77,12 +78,11 @@
                 axios.get('/api/colleague')
                     .then(function (resp) {
                         app.colleagues = resp.data.data;
-                        console.log(app.colleagues[0].projects);
                     })
                     .catch(function () {
                         alert("Could not load your colleague")
                     })
-            }
+            },
         }
     }
 </script>

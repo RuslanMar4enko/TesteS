@@ -20,6 +20,7 @@ class ProjectController extends Controller
 
         $search = Colleague::orWhere('name', 'like', '%' . $request->keywords . '%')
             ->orWhere('surname', 'like', '%' . $request->keywords . '%')
+            ->orWhere('patronymic', 'like', '%' . $request->keywords . '%')
             ->get();
 
         return response()->json($search);
