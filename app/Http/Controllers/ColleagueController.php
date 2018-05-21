@@ -8,6 +8,11 @@ use App\Colleague;
 class ColleagueController extends Controller
 {
 
+    public function index(){
+        $colleague = Colleague::with('projects')->latest()->get();
+       return['data'=>$colleague];
+    }
+
     /**
      * @param Request $request
      * @return array
@@ -58,5 +63,6 @@ class ColleagueController extends Controller
         return ['data' => $colleague];
 
     }
+
 
 }

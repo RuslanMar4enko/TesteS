@@ -13549,6 +13549,10 @@ p {
   transition: all .2s ease-in-out;
 }
 
+.margin {
+  margin: 20px 0 20px 0;
+}
+
 .sidebar {
   position: fixed;
   z-index: 10;

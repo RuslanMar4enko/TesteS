@@ -19,5 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('colleague/create', 'ColleagueController@store');
 Route::put('colleague/update/{id}', 'ColleagueController@addProject');
+Route::get('colleague', 'ColleagueController@index');
 Route::get('colleague/{id}', 'ColleagueController@show');
 Route::get('projects', 'ProjectController@index');
