@@ -21,3 +21,4 @@ Route::post('colleague/create', 'ColleagueController@store');
 Route::put('colleague/update/{id}', 'ColleagueController@addProject');
 Route::get('colleague/{id}', 'ColleagueController@show');
 Route::get('projects', 'ProjectController@index');
+Route::get('search', 'ProjectController@search');

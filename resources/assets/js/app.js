@@ -11,6 +11,7 @@ window.Axios = require('axios').default;
 
 
 Vue.component('top-header', require('./components/Header.vue'));
+Vue.component('search', require('./components/Search.vue'));
 
 // register modules
 Vue.use(VueRouter, VueAxios, axios);

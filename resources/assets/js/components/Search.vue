@@ -1,0 +1,39 @@
+<template>
+    <div>
+        <input type="text" v-model="keywords">
+        <ul v-if="results.length > 0">
+            <li v-for="result in results" :key="result.id" v-text="result.name"></li>
+        </ul>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                keywords: null,
+                results: []
+            };
+        },
+
+        watch: {
+            keywords(after, before) {
+                this.fetch();
+            }
+        },
+
+        methods: {
+            fetch() {
+                let app = this;
+                axios.get('/api/search', { params: { keywords: this.keywords } })
+                    .then(function (resp) {
+                        console.log(resp);
+                        app.results = resp.data
+                    })
+                    .catch(function (resp) {
+                        console.log('dfsdcscdsdc');
+                    });
+            }
+        },
+    }
+</script>
