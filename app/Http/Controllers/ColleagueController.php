@@ -29,7 +29,7 @@ class ColleagueController extends Controller
         $image = $request->file('image');
 
         if ($image) $filename = $this->imageFit($image);
-        else $filename = 'uploads/Screenshot from 2018-05-14 16-52-02.png';
+        else $filename = 'uploads/download.jpeg';
 
         $colleague = new Colleague();
         $colleague->name = $request->name;
