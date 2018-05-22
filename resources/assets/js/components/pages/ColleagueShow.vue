@@ -116,18 +116,16 @@
                         project.push(this.value.id);
                     }
 
-                    axios.put('/api/colleague/update/'+this.id, project)
+                    axios.put('/api/colleague/update/' + this.id, project)
                         .then(function (resp) {
-
+                            alert("Your project has been added!")
                         })
                         .catch(function () {
-                            alert("Could not update your projects")
+                            alert("Could not update your projects!")
                         })
 
                 } catch (err) {
-
                     console.log(err);
-
                 }
 
             }

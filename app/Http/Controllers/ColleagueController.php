@@ -8,9 +8,10 @@ use App\Colleague;
 class ColleagueController extends Controller
 {
 
-    public function index(Request $request){
+    public function index()
+    {
         $colleague = Colleague::with('projects')->latest()->get();
-       return['data'=>$colleague];
+        return ['data' => $colleague];
     }
 
     /**
@@ -36,10 +37,10 @@ class ColleagueController extends Controller
         $colleague->surname = $request->surname;
         $colleague->patronymic = $request->patronymic;
         $colleague->image = $filename;
-        $colleague->sociability = (int) $request->sociability;
-        $colleague->engineering_skill = (int) $request->engineering_skill;
-        $colleague->time_management = (int) $request->time_management;
-        $colleague->lang = (int) $request->lang;
+        $colleague->sociability = (int)$request->sociability;
+        $colleague->engineering_skill = (int)$request->engineering_skill;
+        $colleague->time_management = (int)$request->time_management;
+        $colleague->lang = (int)$request->lang;
         $colleague->save();
 
         return ['data' => $colleague];

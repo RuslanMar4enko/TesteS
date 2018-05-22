@@ -1,7 +1,7 @@
 <template>
     <div>
         <label class="search"> Поле поиска по ФИО </label>
-        <input type="text" v-model="keywords"placeholder="Search">
+        <input type="text" v-model="keywords" placeholder="Search">
         <div></div>
         <div class=" container jumbotron">
             <div class="row">
@@ -45,7 +45,8 @@
                         </div>
                     </div>
                     <div>
-                        <router-link :to="{ name: 'colleagueShow', params: {  id: colleague.id}}"><span class="btn btn-primary">add Projects</span></router-link>
+                        <router-link :to="{ name: 'colleagueShow', params: {  id: colleague.id}}"><span
+                                class="btn btn-primary">add Projects</span></router-link>
                     </div>
                 </div>
 
@@ -72,13 +73,13 @@
         methods: {
             fetch() {
                 let app = this;
-                axios.get('/api/search', { params: { keywords: this.keywords } })
+                axios.get('/api/search', {params: {keywords: this.keywords}})
                     .then(function (resp) {
                         console.log(resp);
                         app.results = resp.data
                     })
                     .catch(function (resp) {
-                        console.log('dfsdcscdsdc');
+                        console.log(resp);
                     });
             }
         },

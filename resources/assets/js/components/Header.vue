@@ -13,7 +13,8 @@
             <ul>
 
                 <li>
-                    <router-link to="/colleague/create"><i class="fa fa-desktop"></i><span>Colleague Create</span></router-link>
+                    <router-link to="/colleague/create"><i class="fa fa-desktop"></i><span>Colleague Create</span>
+                    </router-link>
                 </li>
                 <li>
                     <router-link to="/get/colleague"><i class="fa fa-desktop"></i><span>Colleague</span></router-link>

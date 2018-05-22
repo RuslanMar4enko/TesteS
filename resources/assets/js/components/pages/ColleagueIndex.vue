@@ -2,7 +2,8 @@
     <div>
         <div id="main" class="main">
             <div class=" container jumbotron">
-                <h1>Список всех сотрудников(фото + ФИО), характеристики и количество проектов на сотруднике(только число).</h1>
+                <h1>
+                    Список всех сотрудников(фото + ФИО), характеристики и количество проектов на сотруднике(только число).</h1>
                 <div class="row">
                     <div v-for="colleague, index in colleagues" class="col-md-6">
                         <div class="margin">
@@ -46,13 +47,15 @@
                             <div style="font-size: 16px; margin-top: 10px;"><strong>Projects</strong>
                                 <strong>{{colleague.projects.length}}</strong></div>
                             <div class="progress">
-                                <div  class="progress-bar progress-bar-striped" role="progressbar"
-                                     v-bind:style="{width: colleague.projects.length + '0%'}" aria-valuenow="10" aria-valuemin="0"
+                                <div class="progress-bar progress-bar-striped" role="progressbar"
+                                     v-bind:style="{width: colleague.projects.length + '0%'}" aria-valuenow="10"
+                                     aria-valuemin="0"
                                      aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div>
-                            <router-link :to="{ name: 'colleagueShow', params: {  id: colleague.id}}"><span class="btn btn-primary">add Projects</span></router-link>
+                            <router-link :to="{ name: 'colleagueShow', params: {  id: colleague.id}}"><span
+                                    class="btn btn-primary">add Projects</span></router-link>
                         </div>
                     </div>
 

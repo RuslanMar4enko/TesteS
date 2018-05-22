@@ -17,7 +17,6 @@ class ProjectController extends Controller
 
     public function search(Request $request)
     {
-
         $search = Colleague::orWhere('name', 'like', '%' . $request->keywords . '%')
             ->orWhere('surname', 'like', '%' . $request->keywords . '%')
             ->orWhere('patronymic', 'like', '%' . $request->keywords . '%')
